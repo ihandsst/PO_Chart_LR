@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZZRDS_C_POCHART_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="ZZRDS_C_POChartType" sap:label="PO Chart PG Consumption" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PoNumber"/>
+                    <PropertyRef Name="PoItem"/>
+                    <PropertyRef Name="Zyear"/>
+                    <PropertyRef Name="Jenis"/>
+                </Key>
+                <Property Name="PoNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Order ID" sap:quickinfo="Purchase Order ID and Item ID"/>
+                <Property Name="PoItem" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Order ID" sap:quickinfo="Purchase Order ID and Item ID"/>
+                <Property Name="Zyear" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Fiscal Year"/>
+                <Property Name="Jenis" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Jenis Purchase Order" sap:quickinfo="DE Jenis PO"/>
+                <Property Name="Jan" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Feb" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Mar" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Apr" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="May" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Jun" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Jul" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Agt" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Sep" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Okt" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Nov" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Des" Type="Edm.Byte" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <NavigationProperty Name="to_Transformed" Relationship="ZZRDS_C_POCHART_CDS.assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52" FromRole="FromRole_assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52" ToRole="ToRole_assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52"/>
+            </EntityType>
+            <EntityType Name="zzrds_c_po_transformedType" sap:label="Consumption Transformed" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PoNumber"/>
+                    <PropertyRef Name="PoItem"/>
+                    <PropertyRef Name="Zyear"/>
+                    <PropertyRef Name="zMonthNumber"/>
+                    <PropertyRef Name="zMonth"/>
+                    <PropertyRef Name="Percentage"/>
+                    <PropertyRef Name="Jenis"/>
+                </Key>
+                <Property Name="PoNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Order ID" sap:quickinfo="Purchase Order ID and Item ID"/>
+                <Property Name="PoItem" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Order ID" sap:quickinfo="Purchase Order ID and Item ID"/>
+                <Property Name="Zyear" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Fiscal Year"/>
+                <Property Name="zMonthNumber" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="NonNegative" sap:text="zMonth" sap:label="Month"/>
+                <Property Name="zMonth" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Month Text"/>
+                <Property Name="Percentage" Type="Edm.Byte" Nullable="false" sap:label="Percentage" sap:quickinfo="PO Percentage per Month"/>
+                <Property Name="Jenis" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:text="JenisText" sap:label="Jenis Purchase Order" sap:quickinfo="DE Jenis PO"/>
+                <Property Name="JenisText" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/>
+            </EntityType>
+            <Association Name="assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52" sap:content-version="1">
+                <End Type="ZZRDS_C_POCHART_CDS.ZZRDS_C_POChartType" Multiplicity="1" Role="FromRole_assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52"/>
+                <End Type="ZZRDS_C_POCHART_CDS.zzrds_c_po_transformedType" Multiplicity="*" Role="ToRole_assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52"/>
+            </Association>
+            <EntityContainer Name="ZZRDS_C_POCHART_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZZRDS_C_POChart" EntityType="ZZRDS_C_POCHART_CDS.ZZRDS_C_POChartType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zzrds_c_po_transformed" EntityType="ZZRDS_C_POCHART_CDS.zzrds_c_po_transformedType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52" Association="ZZRDS_C_POCHART_CDS.assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZZRDS_C_POChart" Role="FromRole_assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52"/>
+                    <End EntitySet="zzrds_c_po_transformed" Role="ToRole_assoc_51FF91FAEC8CFB49B7FD7A0DBC952E52"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZZRDS_C_POCHART_CDS.ZZRDS_C_POCHART_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <atom:link rel="self" href="https://vs4demo.eclectic.co.id:44301/sap/opu/odata/sap/ZZRDS_C_POCHART_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vs4demo.eclectic.co.id:44301/sap/opu/odata/sap/ZZRDS_C_POCHART_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
